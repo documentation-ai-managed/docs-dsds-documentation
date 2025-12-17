@@ -1,0 +1,105 @@
+---
+title: Welcome to dsds Documentation
+description: An overview of the dsds documentation platform, designed to help teams organize and manage project documentation efficiently.
+---
+
+## Overview
+
+dsds provides a centralized platform where you create, organize, and collaborate on project documentation. Build structured spaces for APIs, user guides, and internal wikis with version control, search, and real-time editing. Customize navigation and permissions to fit your team's workflow.
+
+<Columns cols={3}>
+  <Card title="Organized Spaces" icon="folder" href="/docs/spaces">
+    Group related docs into spaces for APIs, SDKs, or onboarding.
+  </Card>
+  <Card title="Collaborative Editing" icon="users" href="/docs/collaboration">
+    Invite team members and edit docs together with change tracking.
+  </Card>
+  <Card title="Advanced Search" icon="search" href="/docs/search">
+    Find content instantly across all spaces with full-text search.
+  </Card>
+</Columns>
+
+## Key Benefits for Teams
+
+You gain efficiency with dsds's intuitive interface. Teams reduce documentation silos by centralizing knowledge. Features like templates speed up creation, while integrations connect to tools such as GitHub and Slack.
+
+<Callout kind="tip">
+  Start small: Create your first space to see how dsds streamlines your workflow.
+</Callout>
+
+| Benefit | Description | Impact |
+|---------|-------------|--------|
+| Centralized Access | All docs in one place | Reduces search time by `>50%` |
+| Role-Based Permissions | Control who edits or views | Enhances security |
+| Version History | Track changes over time | Prevents data loss |
+
+## Quick Start
+
+Follow these steps to set up your first documentation space.
+
+<Steps>
+  <Step title="Create Account" icon="user-plus">
+    Sign up at https://dsds.example.com/register with your email.
+  </Step>
+  <Step title="Build First Space" icon="folder-plus">
+    Click "New Space" and name it, such as "API Docs".
+  </Step>
+  <Step title="Add Content" icon="file-plus">
+    Create pages using Markdown or MDX. Use components like `<Callout>` for highlights.
+  </Step>
+</Steps>
+
+<CodeGroup tabs="JavaScript,Python">
+```javascript
+// Embed dsds docs in your app
+import { DSDSViewer } from '@dsds/viewer';
+
+<DSDSViewer spaceId="your-space-id" apiKey="YOUR_API_KEY" />
+```
+```python
+# Python SDK example
+from dsds import Client
+
+client = Client(api_key="YOUR_API_KEY")
+space = client.spaces.get("your-space-id")
+print(space.pages)
+```
+</CodeGroup>
+
+## Navigation and Structure
+
+dsds uses a hierarchical structure: Spaces contain Pages, which support nested subpages. Access via sidebar or search bar.
+
+<Tabs>
+  <Tab title="Team View" icon="users">
+    See shared spaces and recent edits.
+    
+    ```
+    Spaces
+    ├── API Docs
+    │   ├── Endpoints
+    │   └── Guides
+    └── Internal Wiki
+        └── Onboarding
+    ```
+  </Tab>
+  <Tab title="Personal View" icon="user">
+    Your drafts and starred pages.
+  </Tab>
+  <Tab title="Search Results" icon="search">
+    Filter by tags or content.
+  </Tab>
+</Tabs>
+
+## Frequently Asked Questions
+
+<ExpandableGroup>
+  <Expandable title="How do I invite collaborators?">
+    Go to Space Settings `{> Collaborators}` and add emails. They receive instant access.
+  </Expandable>
+  <Expandable title="Can I export docs?">
+    Yes, export to Markdown, PDF, or HTML from the page menu.
+  </Expandable>
+</ExpandableGroup>
+
+Explore spaces to organize your project docs efficiently with dsds.

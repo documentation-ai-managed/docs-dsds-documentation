@@ -1,0 +1,137 @@
+---
+title: Configuring Your Documentation Space
+description: Learn how to customize and manage settings in your dsds space to fit your project's needs.
+---
+
+## Overview
+
+Customize your dsds documentation space to match your project's branding and workflow. Adjust space settings, apply themes, and connect to version control systems for seamless collaboration. These configurations ensure your documentation stays organized and accessible.
+
+<Callout kind="tip">
+  Start with space settings before diving into themes. This sets the foundation for all customizations.
+</Callout>
+
+## Space Settings and Permissions
+
+Manage who can view, edit, and administer your documentation space. Use the settings panel to define roles and access levels.
+
+<Steps>
+  <Step title="Access Settings" icon="settings">
+    Navigate to your space dashboard and select **Settings > Permissions**.
+  </Step>
+  <Step title="Assign Roles" icon="users">
+    Add members by email. Choose roles like **Viewer**, **Editor**, or **Admin**.
+  </Step>
+  <Step title="Set Defaults" icon="check-circle">
+    Enable public read access if needed, then save changes.
+  </Step>
+</Steps>
+
+<ExpandableGroup>
+  <Expandable title="Advanced Permission Options" default-open="false">
+    Customize granular controls:
+
+    | Role     | View | Edit | Delete | Admin |
+    |----------|------|------|--------|-------|
+    | Viewer   | ✅   | ❌   | ❌     | ❌    |
+    | Editor   | ✅   | ✅   | ❌     | ❌    |
+    | Admin    | ✅   | ✅   | ✅     | ✅    |
+
+    Use these for team-based workflows.
+  </Expandable>
+</ExpandableGroup>
+
+## Theme and Branding Options
+
+Tailor the visual appearance using your brand color `#3B82F6`. Apply custom logos, fonts, and layouts.
+
+<Columns cols={2}>
+  <Card title="Primary Color" icon="palette" href="#">
+    Set your main accent color to `#3B82F6` for buttons and links.
+  </Card>
+  <Card title="Logo Upload" icon="image" href="#">
+    Upload a logo up to 200x50px. Supports PNG and SVG formats.
+  </Card>
+  <Card title="Custom Fonts" icon="type" href="#">
+    Integrate Google Fonts or upload custom files.
+  </Card>
+  <Card title="Layout Toggle" icon="layout" href="#">
+    Switch between sidebar and top navigation.
+  </Card>
+</Columns>
+
+<Tabs>
+  <Tab title="CSS Variables" icon="code">
+    Override defaults in your theme config:
+
+    ```css
+    :root {
+      --brand-primary: #3B82F6;
+      --brand-secondary: #1D4ED8;
+      --font-family: 'Inter', sans-serif;
+    }
+    ```
+  </Tab>
+  <Tab title="JSON Config" icon="database">
+    Use a config file for advanced setups:
+
+    ```json
+    {
+      "theme": {
+        "primaryColor": "#3B82F6",
+        "logoUrl": "https://your-domain.com/logo.svg"
+      }
+    }
+    ```
+  </Tab>
+</Tabs>
+
+## Integration with Version Control
+
+Connect your dsds space to GitHub or GitLab for automatic syncing. Push changes to your repo, and dsds rebuilds your docs.
+
+<Callout kind="info">
+  Enable webhooks to trigger builds on push events. Use `YOUR_WEBHOOK_SECRET` for security.
+</Callout>
+
+<Steps>
+  <Step title="Connect Repository" icon="git-branch">
+    Go to **Settings > Integrations** and authorize GitHub.
+  </Step>
+  <Step title="Configure Webhook" icon="link">
+    Copy the dsds webhook URL and add it to your repo settings.
+  </Step>
+  <Step title="Test Sync" icon="play">
+    Push a commit and verify the build in dsds.
+  </Step>
+</Steps>
+
+<CodeGroup tabs="GitHub, GitLab">
+  ```javascript
+  // GitHub Actions workflow (.github/workflows/docs.yml)
+  name: Build Docs
+  on: [push]
+  jobs:
+    build:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v4
+        - name: Deploy to dsds
+          run: curl -X POST https://api.dsds.com/webhooks/YOUR_WEBHOOK_URL \\
+            -H "Authorization: Bearer YOUR_WEBHOOK_SECRET" \\
+            -d '{"ref": "${{ github.ref }}"}'
+  ```
+  ```yaml
+  # GitLab CI (.gitlab-ci.yml)
+  deploy_docs:
+    stage: deploy
+    script:
+      - curl -X POST "https://api.dsds.com/webhooks/YOUR_WEBHOOK_URL"
+        -H "Authorization: Bearer YOUR_WEBHOOK_SECRET"
+        -d "{\"ref\": \"$CI_COMMIT_REF_NAME\"}"
+    only:
+      - main
+  ```
+</CodeGroup>
+
+These steps complete your dsds space setup. Your documentation now reflects your brand and integrates smoothly with your development pipeline.

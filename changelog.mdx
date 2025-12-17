@@ -1,0 +1,134 @@
+---
+title: Changelog
+description: Track updates and improvements to the dsds platform over time.
+---
+
+## Recent Updates
+
+<Callout kind="info">
+  You receive notifications for new releases via the dsds dashboard. Check this changelog for detailed release notes, including new features, improvements, and bug fixes.
+</Callout>
+
+Stay informed about the latest enhancements to dsds, your documentation platform. Each release delivers better performance, new capabilities, and resolved issues to streamline your documentation workflows.
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added real-time collaboration editing for documentation pages
+- Introduced custom brand color theming (`#3B82F6` default)
+- New YAML frontmatter validator for MDX files
+
+## Improvements
+
+- Enhanced MDX parsing speed by 40%
+- Better error messages for component syntax issues
+
+## Bug Fixes
+
+- Fixed Mermaid diagram rendering in nested code blocks
+- Resolved special character escaping in prose (`<`, `>`, `{`, `}`)
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Integrated Lucide icon library with 200+ icons (e.g., `book-open`, `zap`)
+- Added `<Columns>` component for responsive grids (cols={2}, cols={3})
+
+## Bug Fixes
+
+- Corrected JSX attribute parsing for double quotes only
+- Fixed heading hierarchy enforcement (no H1 in body content)
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["feature", "breaking"]}>
+
+## New Features
+
+- Core MDX documentation engine with 15+ components
+- `<Update>` component for structured changelogs
+- Automatic parsing rules for error-free output
+
+## Breaking Changes
+
+- Removed single quotes in JSX attributes (use double quotes only)
+- Enforced 4 backticks for nested code blocks
+
+</Update>
+
+## Upgrade to Latest Version
+
+Follow these steps to update your dsds installation and benefit from the newest features.
+
+<Steps>
+  <Step title="Backup Your Site" icon="database">
+
+  Create a backup of your documentation repository.
+
+  ```bash
+  git checkout -b backup-$(date +%Y%m%d)
+  ```
+
+  </Step>
+  <Step title="Update Package" icon="package">
+
+  <Tabs>
+    <Tab title="npm" icon="npm">
+      ```bash
+      npm update dsds@latest
+      ```
+    </Tab>
+    <Tab title="yarn" icon="yarn">
+      ```bash
+      yarn upgrade dsds@latest
+      ```
+    </Tab>
+    <Tab title="pnpm" icon="package">
+      ```bash
+      pnpm up dsds@latest
+      ```
+    </Tab>
+  </Tabs>
+
+  </Step>
+  <Step title="Rebuild and Deploy" icon="rocket">
+
+  Rebuild your site and deploy.
+
+  <CodeGroup tabs="npm,yarn">
+    ```bash
+    npm run build
+    npm run deploy
+    ```
+    ```bash
+    yarn build
+    yarn deploy
+    ```
+  </CodeGroup>
+
+  </Step>
+</Steps>
+
+## Feature Highlights
+
+<Columns cols={3}>
+  <Card title="Collaboration" icon="users" href="#">
+    Edit docs in real-time with your team.
+  </Card>
+  <Card title="Theming" icon="palette" href="#">
+    Customize with your brand colors like `#3B82F6`.
+  </Card>
+  <Card title="Components" icon="puzzle" href="#">
+    15+ MDX components for rich documentation.
+  </Card>
+</Columns>
+
+<Expandable title="View Older Releases" default-open="false">
+
+For releases prior to v1.0.0, refer to the [GitHub releases page](https://github.com/your-org/dsds/releases).
+
+</Expandable>

@@ -1,0 +1,146 @@
+---
+title: Getting Started with dsds
+description: A step-by-step guide to set up your first documentation space and start creating content right away.
+---
+
+## Overview
+
+Get started with dsds in minutes. Follow these steps to create an account, set up your first documentation space, and upload content. dsds makes it easy to organize MDX files, collaborate with teams, and publish beautiful docs sites.
+
+<Callout kind="tip">
+  You need a GitHub account for seamless integration, but you can start with email signup too.
+</Callout>
+
+## Prerequisites
+
+Before beginning, ensure you have:
+
+- A modern browser like Chrome or Firefox
+- Optional: Git installed for CLI uploads
+- Your project files ready (MDX, images, etc.)
+
+## Step 1: Create and Log In to Your Account
+
+Follow these steps to sign up and access the dashboard.
+
+<Steps>
+  <Step title="Visit dsds Dashboard" icon="globe">
+    Open your browser and navigate to `https://app.dsds.dev`.
+  </Step>
+  <Step title="Sign Up" icon="user-plus">
+    Click **Sign Up** and choose GitHub, Google, or email. Complete the verification process.
+  </Step>
+  <Step title="Verify Email" icon="mail">
+    Check your inbox for a verification link from dsds and click it to activate your account.
+  </Step>
+  <Step title="Log In" icon="log-in">
+    Return to the dashboard and log in. You'll land on the spaces overview page.
+  </Step>
+</Steps>
+
+## Step 2: Create a New Documentation Space
+
+A documentation space hosts your MDX files and generates a custom docs site.
+
+<Steps>
+  <Step title="Click New Space" icon="plus">
+    From the dashboard, select **New Space**.
+  </Step>
+  <Step title="Name Your Space" icon="edit-3">
+    Enter a name like `my-project-docs` and add a description: "Documentation for My Awesome Project".
+  </Step>
+  <Step title="Choose Template" icon="layout">
+    Select the **MDX Starter** template for quick setup with sample pages.
+  </Step>
+  <Step title="Create Space" icon="check-circle">
+    Click **Create**. Your space is ready with a default `quickstart.mdx` page.
+  </Step>
+</Steps>
+
+<Image
+  src="https://via.placeholder.com/800x400/3B82F6/FFFFFF?text=New+Space+Created"
+  alt="Screenshot of newly created dsds documentation space dashboard"
+  width="800"
+  height="400"
+/>
+
+## Step 3: Upload Your Initial Content
+
+Upload files via web UI, Git, or CLI. Choose the method that fits your workflow.
+
+<Tabs>
+  <Tab title="Web UI" icon="upload">
+    Drag and drop MDX files into the **Files** tab.
+
+    <CodeGroup tabs="MDX,Image">
+    ```mdx
+    ---
+    title: My First Page
+    description: Welcome to my docs.
+    ---
+
+    ## Hello World
+
+    This is your first MDX page.
+    ```
+    ```mdx
+    ![Diagram](flowchart.png)
+    ```
+    </CodeGroup>
+  </Tab>
+  <Tab title="GitHub Sync" icon="github">
+    Connect your GitHub repo.
+
+    1. Go to **Integrations > GitHub**.
+    2. Authorize dsds.
+    3. Push MDX files to `/docs` folder in your repo.
+
+    dsds auto-syncs changes.
+  </Tab>
+  <Tab title="CLI" icon="terminal">
+    Install and use the dsds CLI.
+
+    <CodeGroup tabs="npm,yarn">
+    ```bash
+    npm install -g @dsds/cli
+    dsds login
+    dsds space upload my-project-docs ./src/docs
+    ```
+    ```bash
+    yarn global add @dsds/cli
+    dsds login
+    dsds space upload my-project-docs ./src/docs
+    ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
+<Callout kind="success">
+  Your site publishes automatically after uploads. Preview at `https://my-project-docs.dsds.dev`.
+</Callout>
+
+## Next Steps
+
+Explore more features to enhance your docs.
+
+<Columns cols={3}>
+  <Card title="Customize Theme" icon="palette" href="/docs/themes">
+    Adjust colors (brand: `#3B82F6`) and layouts.
+  </Card>
+  <Card title="Add Search" icon="search" href="/docs/search">
+    Enable full-text search across pages.
+  </Card>
+  <Card title="Team Collaboration" icon="users" href="/docs/teams">
+    Invite members and manage permissions.
+  </Card>
+</Columns>
+
+## Troubleshooting
+
+<Expandable title="Common Issues" default-open="false">
+  - **Upload fails**: Check file size `<10MB` and MDX syntax.
+  - **Site not updating**: Wait 30 seconds for build, or trigger manual deploy.
+  - **Custom domain**: Verify DNS in space settings.
+</Expandable>
+
+Your dsds space is live! Start editing pages and build your documentation.
